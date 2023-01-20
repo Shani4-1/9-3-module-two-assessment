@@ -1,32 +1,56 @@
-const apiURL = "https://ghibliapi.herokuapp.com/films" 
-
-
-
-
-
+const apiURL = "https://resource-ghibli-api.onrender.com/films";
+const option = document.querySelector("option");
+const displayInfo = document.querySelector("#display-info");
+const h3 = document.createElement("h3");
+const p = document.createElement("p");
 // To ensure Cypress tests work as expeded, add any code/functions that you would like to run on page load inside this function
 
-function run() {
-    function fetchAPI(apiURL) {
-        fetch(apiURL)
+function run(apiURL) {
+    
+    
+    
+    
+        fetch(`${apiURL}`)
         .then((response) => 
             response.json())
+           
+
         .then((films) => {
             for (let film of films) {
-                const title = film.title;
-                // const ingredients = recipe.ingredients;
-                // const servings = recipe.servings;
-                // const instruct = recipe.instructions
-                console.log(title)
-            };
-        // .catch(err => 
-        // console.error(err));
-        
+
+                // const film = response
+                const filmID = film.id;
+                const filmTitle = film.title
+                const releaseYear = film.release_date
+                const movieDescription = film.description
+
+
+                    // const ingredients = recipe.ingredients;
+                    // const servings = recipe.servings;
+                    // const instruct = recipe.instructions
+                console.log(filmTitle);
+                console.log(filmID);
+                option.append(filmID);
+                option.textContent = films.title;
+                displayInfo.append(h3);
+                h3.append(filmTitle);
+                displayInfo.append(p);
+                p.append(releaseYear);
+                p.append(movieDescription);
+            }
+             
+                
+                
+        })
+         .catch((err) => 
     
-        });
+         console.error(err)
+            )
     }
-    fetchAPI(apiURL)
-}    
+ run(apiURL);
+// const select = document.querySelector("select");
+// select.addEventListener(click)
+
  // Add code you want to run on page load here
  
 // This function will "pause" the functionality expected on load long enough to allow Cypress to fully load

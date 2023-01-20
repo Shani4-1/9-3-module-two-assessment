@@ -1,11 +1,34 @@
 body {
     background-color: lavender;
     font-family: monospace;
+   
 }
 header {
-    max-width: 75%;
+    align-self: center;
+    height: 100px;
+    width: 75%;
     background-color: skyblue;
 }
-img {
-    
+.logo-image{
+    height: 100%;
 }
+#main-title {
+    float: right;
+}
+#center {
+    margin: auto;
+   
+}
+#main{
+    margin: auto;
+    text-align: center;
+    padding-left: 50px;
+}
+#reviews {
+    display: block;
+}
+@media screen and (max-width: 400px) {
+    #reviews {
+      display: none;
+    }
+  }
