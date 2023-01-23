@@ -25,9 +25,6 @@ function run(apiURL) {
                 const movieDescription = film.description
 
 
-                    // const ingredients = recipe.ingredients;
-                    // const servings = recipe.servings;
-                    // const instruct = recipe.instructions
                 console.log(filmTitle);
                 console.log(filmID);
                 option.append(filmID);
